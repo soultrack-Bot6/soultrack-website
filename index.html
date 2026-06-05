@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心衡 SoulTrack</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e8e8e8;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        section {
+            margin-bottom: 100px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero h1 + h1 {
+            font-size: 1.5rem;
+            color: #a8a8a8;
+            margin-bottom: 40px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #b8b8b8;
+            margin-bottom: 12px;
+        }
+
+        .trust-badge {
+            margin-top: 60px;
+            display: inline-flex;
+            gap: 30px;
+            padding: 20px 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #a8a8a8;
+        }
+
+        /* Brand Story */
+        .brand-story h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .brand-story p {
+            font-size: 1.1rem;
+            color: #c8c8c8;
+            margin-bottom: 12px;
+        }
+
+        .brand-story .en {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* Products Grid */
+        .products h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .product-card h3 span {
+            font-size: 0.9rem;
+            color: #a8a8a8;
+            font-weight: 300;
+        }
+
+        .product-card p {
+            font-size: 0.95rem;
+            color: #b8b8b8;
+            margin-bottom: 8px;
+        }
+
+        .product-card .en {
+            color: #787878;
+            font-size: 0.85rem;
+        }
+
+        /* Subscribe Section */
+        .subscribe h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .subscribe h2 + h2 {
+            font-size: 1.3rem;
+            color: #a8a8a8;
+            margin-bottom: 30px;
+        }
+
+        .subscribe p {
+            font-size: 1rem;
+            color: #c8c8c8;
+            margin-bottom: 10px;
+        }
+
+        .subscribe .en {
+            color: #787878;
+            margin-bottom: 40px;
+        }
+
+        .benefits {
+            margin: 30px 0 50px 0;
+        }
+
+        .benefit-item {
+            font-size: 0.95rem;
+            color: #a8a8a8;
+            margin-bottom: 10px;
+        }
+
+        .tally-form {
+            margin-top: 40px;
+            padding: 40px;
+            border: 1px dashed rgba(255,255,255,0.2);
+            border-radius: 8px;
+            text-align: center;
+            color: #888;
+        }
+
+        /* Trust Section */
+        .trust {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .trust-item h4 {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .trust-item p {
+            font-size: 0.85rem;
+            color: #787878;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer .copyright {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        footer .tagline {
+            color: #a8a8a8;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        footer .tagline-en {
+            color: #686868;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero h1 + h1 {
+                font-size: 1.2rem;
+            }
+            .trust-badge {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .container {
+                padding: 40px 20px;
+            }
+            section {
+                margin-bottom: 70px;
+            }
+        }
+
+        /* Emotion Selector */
+        .emotion-selector {
+            padding: 40px 0 50px;
+            text-align: center;
+        }
+        .emotion-selector h2 {
+            font-size: 20px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .selector-hint {
+            font-size: 13px;
+            color: #6a6680;
+            margin-bottom: 32px;
+        }
+        .emotion-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .emotion-btn {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 18px 16px;
+            color: #c9c0b0;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            min-width: 100px;
+            flex: 1 1 auto;
+        }
+        .emotion-btn:hover {
+            background: rgba(200, 180, 140, 0.1);
+            border-color: rgba(200, 180, 140, 0.4);
+            color: #ffffff;
+        }
+        .emotion-btn.active {
+            background: rgba(200, 180, 140, 0.15);
+            border-color: rgba(200, 180, 140, 0.6);
+            color: #ffffff;
+        }
+        .emoji {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .card-display {
+            margin-top: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .insight-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(200, 180, 140, 0.2);
+            border-radius: 20px;
+            padding: 36px 28px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .card-text {
+            font-size: 18px;
+            color: #e0dcd0;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+        .card-text-en {
+            font-size: 13px;
+            color: #8a86a0;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+        }
+        .card-footer-text {
+            font-size: 13px;
+            color: #908ca0;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+        .generator-section {
+            padding: 40px 0 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .generator-section h2 {
+            font-size: 20px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .generator-hint {
+            font-size: 13px;
+            color: #6a6680;
+            margin-bottom: 32px;
+        }
+        .generator-input-area {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .generator-input-area textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 18px;
+            color: #e0dcd0;
+            font-family: inherit;
+            font-size: 15px;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .generator-input-area textarea:focus {
+            border-color: rgba(200, 180, 140, 0.4);
+        }
+        .generator-input-area textarea::placeholder {
+            color: #5a5670;
+        }
+        .generate-btn {
+            margin-top: 16px;
+            background: rgba(200, 180, 140, 0.15);
+            border: 1px solid rgba(200, 180, 140, 0.3);
+            border-radius: 24px;
+            padding: 12px 32px;
+            color: #c9b99a;
+            font-family: inherit;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+        .generate-btn:hover {
+            background: rgba(200, 180, 140, 0.25);
+            border-color: rgba(200, 180, 140, 0.6);
+            color: #ffffff;
+        }
+        .cards-output {
+            margin-top: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+        .cards-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .card-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(200, 180, 140, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .card-item:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(200, 180, 140, 0.4);
+        }
+        .card-item .persona-label {
+            font-size: 12px;
+            color: #c9b99a;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .card-item .dual-text {
+            font-size: 15px;
+            color: #e0dcd0;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        .card-item .dual-text-en {
+            font-size: 12px;
+            color: #8a86a0;
+            line-height: 1.6;
+        }
+        .generator-footer {
+            font-size: 13px;
+            color: #908ca0;
+            margin-top: 28px;
+            letter-spacing: 0.5px;
+        }
+        .selected-card {
+            border-color: rgba(200, 180, 140, 0.6) !important;
+            background: rgba(200, 180, 140, 0.1) !important;
+        }
+        @media (max-width: 500px) {
+            .emotion-btn {
+                min-width: 80px;
+                padding: 14px 10px;
+                font-size: 12px;
+            }
+            .card-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>你又觉得自己搞砸了。</h1>
+            <h1>You think you messed up again.</h1>
+            <p>但其实，你没有。这里是一个能同时看见你正在承受的、和正在坚持的地方。</p>
+            <p class="en">But you didn't. A place that sees what you're carrying — and what you're still holding onto.</p>
+            <div class="trust-badge">
+                <div>
+                    纯本地<br>
+                    Local Only
+                </div>
+                <div>
+                    零上传<br>
+                    Zero Upload
+                </div>
+                <div>
+                    永不评判<br>
+                    Zero Judgment
+                </div>
+            </div>
+        </section>
+
+        <!-- 情绪选择器 -->
+        <section class="emotion-selector">
+            <h2>你现在最想被理解的是什么？</h2>
+            <p class="selector-hint">What do you most need to be understood right now?</p>
+            
+            <div class="emotion-buttons">
+                <button class="emotion-btn" data-emotion="sleep" onclick="showCard('sleep')">
+                    <span class="emoji">🌙</span>
+                    <span>失眠时<br>别再怪自己</span>
+                </button>
+                <button class="emotion-btn" data-emotion="social" onclick="showCard('social')">
+                    <span class="emoji">💭</span>
+                    <span>社交后<br>能量被掏空</span>
+                </button>
+                <button class="emotion-btn" data-emotion="water" onclick="showCard('water')">
+                    <span class="emoji">💧</span>
+                    <span>忙了一天<br>忘了照顾自己</span>
+                </button>
+                <button class="emotion-btn" data-emotion="nature" onclick="showCard('nature')">
+                    <span class="emoji">🌿</span>
+                    <span>被困在城市<br>渴望自然</span>
+                </button>
+                <button class="emotion-btn" data-emotion="body" onclick="showCard('body')">
+                    <span class="emoji">🤲</span>
+                    <span>身体在疼<br>却一直没去看</span>
+                </button>
+            </div>
+
+            <div class="card-display" id="cardDisplay" style="display:none;">
+                <div class="insight-card">
+                    <p class="card-text" id="cardText"></p>
+                    <p class="card-text-en" id="cardTextEn"></p>
+                </div>
+                <p class="card-footer-text">如果这句话触动了你，留下邮箱，未来我们会用更多这样的时刻陪伴你。</p>
+            </div>
+        </section>
+
+        <!-- 情绪创可贴生成器 -->
+        <section class="generator-section">
+            <h2>写下你的感受，得到一句懂你的话</h2>
+            <p class="generator-hint">Tell me how you feel. I'll find the words you need.</p>
+            
+            <div class="generator-input-area">
+                <textarea id="userInput" placeholder="比如：今天被老板批评了，觉得自己好没用..." rows="3"></textarea>
+                <button class="generate-btn" onclick="generateCards()">生成我的创可贴</button>
+            </div>
+            
+            <div class="cards-output" id="cardsOutput" style="display:none;">
+                <div class="cards-grid" id="cardsGrid"></div>
+                <p class="generator-footer">如果这些话触动了你，留下邮箱，未来我们会用更多这样的时刻陪伴你。</p>
+            </div>
+        </section>
+
+        <!-- Brand Story -->
+        <section class="brand-story">
+            <h2>品牌故事 / About</h2>
+            <p>大多数App在帮你记录问题。我们在帮你重新理解它们。</p>
+            <p class="en">Most apps help you track problems. We help you reframe them.</p>
+            <p>失眠，不是因为你不够自律，而是你的大脑在为你守护着什么。</p>
+            <p class="en">Insomnia isn't a lack of discipline. It's your brain trying to protect you.</p>
+            <p>拖延，不是因为你懒惰，而是你的身体在用一种笨拙的方式保护你。</p>
+            <p class="en">Procrastination isn't laziness. It's your body guarding you in its own clumsy way.</p>
+            <p>这就是我们的「双视角」哲学——不只看见你的透支，也看见你的富足。</p>
+            <p class="en">This is our Dual-Perspective philosophy — seeing not just what drains you, but what still fills you.</p>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products">
+            <h2>产品矩阵 / Products</h2>
+            <div class="product-grid">
+                <!-- 睡眠·心衡 -->
+                <div class="product-card">
+                    <h3>睡眠·心衡 <span>/ Sleep</span></h3>
+                    <p>量化你的睡眠负债，看清身体真正需要的休息。</p>
+                    <p class="en">Stop blaming yourself for sleepless nights. Your body isn't betraying you.</p>
+                </div>
+
+                <!-- 社交·心衡 -->
+                <div class="product-card">
+                    <h3>社交·心衡 <span>/ Social</span></h3>
+                    <p>追踪社交能量消耗，找到恢复独处的最佳节奏。</p>
+                    <p class="en">Solitude is not escape. It's how you recharge.</p>
+                </div>
+
+                <!-- 饮水·心衡 -->
+                <div class="product-card">
+                    <h3>饮水·心衡 <span>/ Water</span></h3>
+                    <p>记录身体发出的微小信号，在疲惫前补充水分。</p>
+                    <p class="en">Forgot to drink? That's focus, not failure.</p>
+                </div>
+
+                <!-- 自然·心衡 -->
+                <div class="product-card">
+                    <h3>自然·心衡 <span>/ Nature</span></h3>
+                    <p>用五分钟的自然连接，重置被屏幕耗尽的注意力。</p>
+                    <p class="en">Your bond with nature isn't broken, just stretched.</p>
+                </div>
+
+                <!-- 身体·心衡 -->
+                <div class="product-card">
+                    <h3>身体·心衡 <span>/ Body</span></h3>
+                    <p>解码身体的紧张信号，用拉伸为酸痛画上句号。</p>
+                    <p class="en">Pain is a message, not a verdict.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscribe -->
+        <section class="subscribe">
+            <h2>成为早期支持者</h2>
+            <h2>Become an Early Supporter</h2>
+            <p>留下邮箱，锁定产品上线时的终身最低折扣。</p>
+            <p class="en">Leave your email to lock in the lowest lifetime discount at launch.</p>
+            <div class="benefits">
+                <div class="benefit-item">
+                    产品上线时的最低终身折扣 / Lowest lifetime discount at launch
+                </div>
+                <div class="benefit-item">
+                    参与内测，定义产品未来的走向 / Join the beta and help shape the product
+                </div>
+                <div class="benefit-item">
+                    永不涨价 · 14天无理由退款 / No price hikes · 14-day refund
+                </div>
+            </div>
+            <div class="tally-form">
+                <iframe src="https://tally.so/embed/A7yRgy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" frameborder="0" marginheight="0" marginwidth="0" title="心衡早期支持者订阅"></iframe>
+            </div>
+        </section>
+
+        <!-- Trust -->
+        <section class="trust">
+            <div class="trust-item">
+                <h4>永不涨价</h4>
+                <p>No Price Hikes</p>
+            </div>
+            <div class="trust-item">
+                <h4>14天无理由退款</h4>
+                <p>14-Day Refund</p>
+            </div>
+            <div class="trust-item">
+                <h4>纯本地 · 零上传</h4>
+                <p>Local Only · Zero Upload</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p class="copyright">心衡 SoulTrack © 2026</p>
+            <p class="tagline">每一份疲惫背后，都有一份被忽略的付出。</p>
+            <p class="tagline-en">Behind every exhaustion is an effort that went unnoticed.</p>
+        </footer>
+    </div>
+    <script>
+        function showCard(emotion) {
+            console.log('====================================');
+            console.log('【情绪选择器】点击按钮:', emotion);
+            
+            const insights = {
+                sleep: {
+                    zh: "失眠不是因为你不够自律，而是你的大脑在为你守护着什么。给自己一点时间，身体会找到它需要的节奏。",
+                    en: "Insomnia isn't about lack of discipline. Your brain is trying to protect you. Give yourself time, your body will find its rhythm."
+                },
+                social: {
+                    zh: "社交后感到疲惫不是你的问题，而是你的身体在告诉你：需要回到自己的世界充充电了。",
+                    en: "Feeling drained after socializing isn't your fault. Your body is telling you: time to recharge in your own space."
+                },
+                water: {
+                    zh: "忙到忘记喝水不是粗心，而是你太专注于手头的事情了。现在，给自己倒一杯水吧。",
+                    en: "Forgetting to drink water isn't carelessness. You were just too focused. Now, pour yourself a glass."
+                },
+                nature: {
+                    zh: "渴望自然不是逃避现实，而是你的灵魂在呼唤那份本应属于你的宁静。",
+                    en: "Longing for nature isn't escaping. Your soul is calling for the peace that's rightfully yours."
+                },
+                body: {
+                    zh: "身体的疼痛不是软弱的信号，而是它在温柔地提醒你：停下来，照顾一下自己。",
+                    en: "Physical pain isn't a sign of weakness. It's your body gently reminding you: pause, take care of yourself."
+                }
+            };
+            
+            console.log('【数据加载】情绪类型:', emotion);
+            console.log('【中文文案】:', insights[emotion].zh);
+            console.log('【英文文案】:', insights[emotion].en);
+            
+            document.getElementById('cardText').textContent = insights[emotion].zh;
+            document.getElementById('cardTextEn').textContent = insights[emotion].en;
+            document.getElementById('cardDisplay').style.display = 'block';
+            
+            document.querySelectorAll('.emotion-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-emotion="${emotion}"]`).classList.add('active');
+            
+            console.log('【状态更新】卡片已显示，按钮激活状态已更新');
+            console.log('====================================');
+        }
+    </script>
+    <script>
+// 五种人格名称
+const personaNames = {
+    wise_elder: '# 智慧长者',
+    humorous_friend: '# 幽默老友',
+    poetic_soul: '# 诗意灵魂',
+    gentle_geek: '# 极客温柔',
+    fiery_companion: '# 战友击掌'
+};
+
+// 从数组中随机抽取一条
+function randomPick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// 生成卡片
+function generateCards() {
+    const input = document.getElementById('userInput').value.trim();
+    if (!input) return;
+    
+    const cardsGrid = document.getElementById('cardsGrid');
+    const cardsOutput = document.getElementById('cardsOutput');
+    const responses = generateResponses(input);
+    
+    cardsGrid.innerHTML = '';
+    
+    Object.keys(responses).forEach((persona) => {
+        const r = randomPick(responses[persona]);
+        const card = document.createElement('div');
+        card.className = 'card-item';
+        card.onclick = function() { selectCard(this); };
+        card.innerHTML = `
+            <div class="persona-label">${personaNames[persona]}</div>
+            <div class="dual-text">📉 ${r.debt}</div>
+            <div class="dual-text">📈 ${r.wealth}</div>
+            <div class="dual-text-en">📉 ${r.debt_en}</div>
+            <div class="dual-text-en">📈 ${r.wealth_en}</div>
+        `;
+        cardsGrid.appendChild(card);
+    });
+    
+    cardsOutput.style.display = 'block';
+}
+
+// 根据输入关键词分发到不同场景
+function generateResponses(input) {
+    if (input.includes('老板') || input.includes('批评') || input.includes('骂')) {
+        return getCriticismResponses();
+    } else if (input.includes('孤独') || input.includes('一个人') || input.includes('寂寞')) {
+        return getLonelyResponses();
+    } else if (input.includes('累') || input.includes('疲惫') || input.includes('没力气')) {
+        return getTiredResponses();
+    } else if (input.includes('焦虑') || input.includes('担心') || input.includes('怕')) {
+        return getAnxiousResponses();
+    } else {
+        return getGeneralResponses(input);
+    }
+}
+
+// 选中卡片
+function selectCard(card) {
+    document.querySelectorAll('.card-item').forEach(c => c.classList.remove('selected-card'));
+    card.classList.add('selected-card');
+}
+
+// 被批评场景响应
+function getCriticismResponses() {
+    return {
+        wise_elder: [
+            {
+                debt: '被否定时，那种自我怀疑的感觉涌上心头，是很自然的。它不是你能力不足的证明，而是你内心对「做好」的渴望在发出声音。',
+                wealth: '但你会为此难过，恰恰证明你对这份工作投入了远超薪水的责任心。这份在乎本身，就是你的价值。',
+                debt_en: "The self-doubt that floods in when you're criticized is natural. It's not proof of incompetence—it's your desire to do well speaking up.",
+                wealth_en: 'But the fact that you feel hurt shows you care far more than your paycheck demands. That care is your worth.'
+            },
+            {
+                debt: '每一次被批评，都是一次重新认识自己的机会。不是认识自己有多差，而是认识自己有多在意。不在意的事，是不会让人难受的。',
+                wealth: '你在意，说明你还在成长。那些不再在意的人，已经停止了生长。你的难受，是你还在向上攀爬的证据。',
+                debt_en: 'Every criticism is a chance to know yourself better. Not to see how bad you are—but to see how much you care. Indifference never hurts.',
+                wealth_en: 'You care, which means you\'re still growing. Those who no longer care have stopped climbing. Your pain is proof you\'re still ascending.'
+            },
+            {
+                debt: '批评是一面镜子，它照出的不是你的缺陷，而是你对「完美」的执念。这份执念让你走得比别人更远，也让你摔得比别人更疼。',
+                wealth: '但镜子里的你，依然在往前走。疼是真的，远也是真的。不要因为疼，就否定你走过的那些路。',
+                debt_en: 'Criticism is a mirror. It doesn\'t show your flaws—it shows your obsession with perfection. This obsession takes you further and makes you fall harder.',
+                wealth_en: 'But the you in the mirror is still walking. The pain is real, but so is the distance. Don\'t let the pain erase the road you\'ve traveled.'
+            }
+        ],
+        humorous_friend: [
+            {
+                debt: '恭喜你，刚刚完成了一次「职场抗压测试」，老板亲自担任考官，难度系数拉满。这份体验报告，可比工资条值钱多了。',
+                wealth: '说真的，能在被骂之后还愿意把这件事说出来，说明你还没被这份工作磨平。那个会难过的你，还在。',
+                debt_en: 'Congrats, you just completed a "workplace stress test" with your boss as the examiner. This experience report is worth more than your paycheck.',
+                wealth_en: 'Seriously, the fact that you still talk about this means the job hasn\'t worn you down yet. The you that still feels—still exists.'
+            },
+            {
+                debt: '老板又给你免费上了一课，学费是你的好心情，课时是你一整个下午。这门课叫「如何在被否定后依然保持微笑」，你及格了。',
+                wealth: '虽然课很烂，但你听完了。没有掀桌子，没有摔门，没有当场辞职去开滴滴。这份克制，比任何KPI都值得嘉奖。',
+                debt_en: 'Your boss gave you another free lesson—tuition paid with your good mood, class duration: an entire afternoon. The course is "How to Smile After Being Shot Down." You passed.',
+                wealth_en: 'The class sucked, but you sat through it. No table-flipping, no door-slamming, no quitting on the spot. That restraint deserves more praise than any KPI.'
+            },
+            {
+                debt: '听说你今天又被批了？来来来，先坐下喝杯茶。被批不是你的错，是老板今天可能也被他老板批了。你只是踢猫效应的最后一环。',
+                wealth: '但你是那只没有继续踢下一只猫的猫。情绪到了你这里，就停了。你没有把气撒在同事身上，没有回家摆臭脸。你是整个办公室的情绪防火墙。',
+                debt_en: 'Heard you got scolded again? Come, sit, have some tea. It\'s not your fault—your boss probably got scolded by their boss too. You\'re just the last link in the kick-the-cat chain.',
+                wealth_en: 'But you\'re the cat that didn\'t kick the next cat. The emotion stopped with you. You didn\'t lash out at coworkers, didn\'t come home grumpy. You\'re the office\'s emotional firewall.'
+            }
+        ],
+        poetic_soul: [
+            {
+                debt: '你的委屈是一封被退回的信，不是地址写错了，是风还没找到愿意读它的人。这份重量，你先替自己收着。',
+                wealth: '但你会痛，说明心还是软的。在这个把人往钢铁里炼的时代，一颗会痛的心，本身就是最高级的柔软。',
+                debt_en: 'Your hurt is a letter returned. Not because the address was wrong—the wind just hasn\'t found someone to read it yet. Hold it for yourself.',
+                wealth_en: 'But you still hurt, which means your heart is still soft. In an age that forges people into steel, a heart that still feels is the highest form of tenderness.'
+            },
+            {
+                debt: '被否定，是别人的话遮住了你心里本来就有的光。不是光灭了，是别人的影子太重，把你的视线压低了。',
+                wealth: '但光是遮不住的。影子会随着太阳移动，而你的光，来自你内心深处那个永远不会熄灭的内核。等风把影子吹开，你的光还在原地，从未离开。',
+                debt_en: 'Being shot down is someone else\'s words covering the light inside you. The light didn\'t go out—their shadow was just too heavy, pushing your gaze downward.',
+                wealth_en: 'But light cannot be covered forever. Shadows move with the sun, but your light comes from a core that never extinguishes. When the wind blows the shadow away, your light is still there.'
+            },
+            {
+                debt: '那些伤人的话像冰雹，砸在你刚开好的花上。你护着花，自己却被打湿了。',
+                wealth: '但花还在。花瓣上有水珠，不是泪，是雨后的勋章。每一颗水珠都在说：我经历了风暴，但没有凋谢。',
+                debt_en: 'Those hurtful words are hail on the flower you just bloomed. You shielded the flower, but got soaked yourself.',
+                wealth_en: 'But the flower remains. Those droplets on the petals aren\'t tears—they\'re medals from the storm. Each droplet says: I weathered the storm, and I didn\'t wither.'
+            }
+        ],
+        gentle_geek: [
+            {
+                debt: '你的大脑此刻皮质醇水平偏高，这是正常的应激反应。它并不意味着你搞砸了，只是你的身体在告诉你「我在乎这件事」。',
+                wealth: '从神经科学角度看，你对批评的敏感说明你的前额叶皮层在积极构建「更好的自己」。这个信号，比任何表扬都更能预测成长。',
+                debt_en: 'Your cortisol levels are elevated right now. This is a normal stress response. It doesn\'t mean you messed up—your body is just saying "I care about this."',
+                wealth_en: 'Neuroscientifically, your sensitivity to criticism means your prefrontal cortex is actively building a "better you." This signal predicts growth better than any praise.'
+            },
+            {
+                debt: '你的杏仁核今天被激活了——它把老板的批评识别为了社交威胁。这是祖先留给我们的生存本能，但它分不清剑齿虎和KPI。',
+                wealth: '但你的前额叶皮层可以。每一次你在被批评后深呼吸、重新思考、继续工作，都是在训练你的大脑：这不是生死危机，这只是周二下午。',
+                debt_en: 'Your amygdala got triggered today—it identified your boss\'s criticism as a social threat. This survival instinct is a gift from your ancestors, but it can\'t tell a saber-toothed tiger from a KPI.',
+                wealth_en: 'But your prefrontal cortex can. Every time you take a breath, reframe, and keep working after criticism, you\'re training your brain: this isn\'t a life crisis—it\'s just a Tuesday afternoon.'
+            },
+            {
+                debt: '被批评后那种「我什么都做不好」的感觉，在心理学上叫「过度泛化」——你正在用一个瞬间的反馈，定义自己的全部价值。这是常见的认知偏差。',
+                wealth: '识别到这个偏差本身，就说明你的元认知能力很强。你不是不够好，你只是暂时戴上了一副叫「自我批判」的滤镜。摘掉它需要时间，但你已经在摘了。',
+                debt_en: 'That "I can\'t do anything right" feeling after criticism is called "overgeneralization" in psychology—you\'re defining your entire worth by a single moment of feedback. A common cognitive bias.',
+                wealth_en: 'Recognizing this bias already shows strong metacognition. You\'re not inadequate—you\'re just temporarily wearing a filter called "self-criticism." Removing it takes time, but you\'re already doing it.'
+            }
+        ],
+        fiery_companion: [
+            {
+                debt: '被骂了，心里堵得慌。这种感觉太真实了。你没有当场怼回去，也没有躲进厕所哭——你扛下来了。',
+                wealth: '这就是你今天的胜利。不是赢了老板，是赢了自己。那个没有被情绪彻底淹没的你，值得给自己一个肯定。',
+                debt_en: 'You got yelled at, and it hurts. The feeling is real. You didn\'t snap back, and you didn\'t hide—you held it together.',
+                wealth_en: 'That\'s your victory today. Not over your boss—over yourself. The you that wasn\'t swept away by emotion deserves your own acknowledgment.'
+            },
+            {
+                debt: '今天又扛了一波。被否定的感觉像一记闷拳，打在胸口，说不出哪里疼，但就是不舒服。我懂。',
+                wealth: '但你还在。还在呼吸，还在工作，还在想着「明天我要做得更好」。这就是战士的素质——不是不疼，是疼了还能站起来。',
+                debt_en: 'You took another hit today. Being shot down feels like a dull punch to the chest—you can\'t pinpoint the pain, but it\'s there. I get it.',
+                wealth_en: 'But you\'re still here. Still breathing, still working, still thinking "I\'ll do better tomorrow." That\'s a warrior\'s quality—not avoiding pain, but standing up despite it.'
+            },
+            {
+                debt: '又被说了？没事，我懂这种感觉。像被人从背后推了一把，没摔倒，但踉跄了好几步。',
+                wealth: '但你没摔倒。踉跄了几步，然后站稳了。那些踉跄的脚印，不是你失败的证据，是你正在适应这片凹凸不平的路面的证明。继续走，路会越来越平。',
+                debt_en: 'Got scolded again? It\'s okay, I know how it feels. Like being pushed from behind—didn\'t fall, but stumbled a few steps.',
+                wealth_en: 'But you didn\'t fall. You stumbled, then steadied yourself. Those stumbling footprints aren\'t evidence of failure—they\'re proof you\'re adapting to uneven terrain. Keep walking, the road gets smoother.'
+            }
+        ]
+    };
+}
+
+// 孤独场景响应
+function getLonelyResponses() {
+    return {
+        wise_elder: [
+            {
+                debt: '孤独不是一个需要被解决的问题，它是一种需要被理解的感受。此刻你一个人待着，世界没有忘记你，它只是在等你准备好。',
+                wealth: '历史上所有深刻的创造，都诞生于孤独的间隙。你不是被遗忘了，你是在积蓄只有独处时才能沉淀的东西。',
+                debt_en: 'Loneliness is not a problem to solve—it\'s a feeling to understand. The world hasn\'t forgotten you. It\'s just waiting for you to be ready.',
+                wealth_en: 'Every profound creation in history was born in the gaps of solitude. You\'re not forgotten—you\'re gathering what only solitude can refine.'
+            },
+            {
+                debt: '孤独是人类最古老的情感之一。我们的祖先在旷野上独自守夜时，也感受过同样的寂静。你不是一个人在孤独，你是和整个人类历史在一起。',
+                wealth: '那些守夜的祖先，在孤独中发明了火、创造了语言、画出了第一幅壁画。你的孤独，也可能是某个创造的开始。不是今天，也许不是明天，但它在孕育着什么。',
+                debt_en: 'Loneliness is one of humanity\'s oldest emotions. Our ancestors felt the same silence when keeping watch alone in the wilderness. You\'re not alone in loneliness—you\'re with all of human history.',
+                wealth_en: 'Those night-watching ancestors invented fire, created language, painted the first murals—all in solitude. Your loneliness may be the beginning of a creation. Not today, maybe not tomorrow, but it\'s gestating something.'
+            },
+            {
+                debt: '现代人把孤独当成一种病，拼命用社交、娱乐、消费来治疗它。但孤独不是病，是你灵魂的安静模式。',
+                wealth: '在安静模式里，你能听到平时被噪音掩盖的声音——你自己的声音。那些关于你是谁、你想要什么、你正在去哪里的答案，只会在安静中浮现。',
+                debt_en: 'Modern people treat loneliness as an illness, frantically treating it with socializing, entertainment, and consumption. But loneliness isn\'t a disease—it\'s your soul\'s quiet mode.',
+                wealth_en: 'In quiet mode, you can hear what\'s usually drowned out by noise—your own voice. The answers about who you are, what you want, and where you\'re going only emerge in silence.'
+            }
+        ],
+        humorous_friend: [
+            {
+                debt: '一个人待着的时候，手机就是你的社交窗口。但今天这个窗口好像坏了——没人发消息，朋友圈也没人点赞。',
+                wealth: '别急，这说明你今天终于有机会和自己好好待一会儿了。那个被你冷落很久的自己，有一肚子话想跟你说。',
+                debt_en: 'When you\'re alone, your phone is your social window. But today the window seems broken—no messages, no likes.',
+                wealth_en: 'Don\'t worry. It means you finally get to hang out with yourself. The you that\'s been neglected has so much to tell you.'
+            },
+            {
+                debt: '周末晚上，一个人在家，刷剧刷到片尾字幕开始滚动，突然觉得整个世界都在热闹，就你被调成了静音模式。',
+                wealth: '但静音模式也有好处——你不用参与那些你不感兴趣的对话，不用假装对某人的旅行照片很羡慕，不用在群里发表情包维持存在感。你今天只需要取悦一个人：你自己。',
+                debt_en: 'Saturday night, home alone, binge-watching until the credits roll. Suddenly the whole world seems to be partying, and you\'re the only one on mute.',
+                wealth_en: 'But mute has its perks—no participating in conversations you don\'t care about, no pretending to envy someone\'s travel photos, no emoji maintenance in group chats. Today you only need to please one person: yourself.'
+            },
+            {
+                debt: '你的手机屏幕显示：0条新消息。你刷新了一遍。还是0条。你又刷新了一遍。依然是0条。',
+                wealth: '好了，别刷新了。手机不会告诉你的事，我来告诉你：你今天没有被世界抛弃，你只是刚好赶上了所有人的静默时段。这个世界还是需要你的，只是它不好意思主动找你。',
+                debt_en: 'Your phone screen shows: 0 new messages. You refresh. Still 0. You refresh again. Still 0.',
+                wealth_en: 'Okay, stop refreshing. Here\'s what your phone won\'t tell you: you\'re not abandoned by the world today. You just happened to catch everyone\'s quiet hour. The world still needs you—it\'s just too shy to reach out first.'
+            }
+        ],
+        poetic_soul: [
+            {
+                debt: '你的孤独是一间只亮了一盏灯的房间。窗外是整座城市的灯火，窗内是你一个人和一整夜的安静。',
+                wealth: '但正是这间房，是整个世界唯一属于你的地方。灯亮着，说明你还在。只要灯还亮着，故事就还在继续。',
+                debt_en: 'Your loneliness is a room lit by a single lamp. Outside is the city\'s glow. Inside is you and a whole night of silence.',
+                wealth_en: 'But this room is the only place in the world that truly belongs to you. The light is on, which means you\'re still here. And the story continues.'
+            },
+            {
+                debt: '你看着窗外的人群，像隔着玻璃看一场别人主演的电影。你是观众，不是主角。',
+                wealth: '但观众也是电影的一部分。没有观众的影院是空的，没有旁观者的世界是盲的。你的观看本身，就是一种参与。你存在的方式，不一定非得是站在舞台中央。',
+                debt_en: 'You watch the crowd outside, like watching a movie through glass—starring someone else. You\'re the audience, not the lead.',
+                wealth_en: 'But the audience is part of the movie too. An empty theater is just a room. A world without observers is blind. Your watching is itself a form of participation. You don\'t have to be center stage to exist.'
+            },
+            {
+                debt: '你是一颗被风吹散的蒲公英种子，飘在半空，找不到可以落下的土壤。',
+                wealth: '但飘着的时候，你看到了整片大地。那些已经落下的种子，只看到自己脚下的那一寸土。你还没有落下，不是因为你不够好，是因为你还想看看这个世界，再做决定。',
+                debt_en: 'You\'re a dandelion seed scattered by the wind, floating mid-air, unable to find soil to land on.',
+                wealth_en: 'But while floating, you see the whole land. Those already grounded only see their inch of soil. You haven\'t landed yet—not because you\'re not good enough, but because you still want to see the world before deciding.'
+            }
+        ],
+        gentle_geek: [
+            {
+                debt: '你的大脑正在经历社交饥饿期。人类是社会性动物，长时间缺乏有意义的互动会触发焦虑回路。这是刻在基因里的本能。',
+                wealth: '但你的大脑也在利用这段独处进行关键的自我整合。记忆、身份、价值观——这些只能在安静中被重新组织和强化。',
+                debt_en: 'Your brain is going through social hunger. Humans are social animals—prolonged lack of meaningful interaction triggers ancient anxiety circuits.',
+                wealth_en: 'But your brain is also using this solitude for crucial self-integration. Memories, identity, values—these can only reorganize and strengthen in quiet.'
+            },
+            {
+                debt: '当你独处时，大脑的默认模式网络会异常活跃。它会自动回放过去的社交场景，预测未来的互动，有时候预测过于悲观，让你觉得被孤立。',
+                wealth: '但默认模式网络也是创造力的来源。那些白日梦、自我反思、灵光一现——都来自这个网络。你不是在浪费时间，你是在给创造力腾出空间。',
+                debt_en: 'When you\'re alone, your brain\'s default mode network becomes hyperactive. It replays past social scenes and predicts future interactions—sometimes too pessimistically, making you feel isolated.',
+                wealth_en: 'But the default mode network is also the source of creativity. Daydreams, self-reflection, sudden inspirations—all come from it. You\'re not wasting time. You\'re making room for creativity.'
+            },
+            {
+                debt: '从进化心理学角度看，孤独是祖先留给我们的预警信号——在远古，被群体抛弃意味着生存威胁。你的大脑还活在草原上。',
+                wealth: '但你已经不在草原上了。你现在拥有独处的能力和资源——WiFi、食物、一个安全的房间。你的大脑需要更新一下系统：孤独不再是生存危机，只是暂时的安静。',
+                debt_en: 'From an evolutionary perspective, loneliness is a warning signal from your ancestors—being abandoned by the group meant death on the savanna. Your brain still lives there.',
+                wealth_en: 'But you\'re no longer on the savanna. You have the ability and resources to be alone—WiFi, food, a safe room. Your brain just needs a system update: loneliness is no longer a survival threat, just temporary quiet.'
+            }
+        ],
+        fiery_companion: []
+    };
+}
+
+// 疲惫场景响应
+function getTiredResponses() {
+    return {
+        wise_elder: [
+            {
+                debt: '疲惫是身体写给你的信。它用一种古老的语言告诉你：你已经走了很远的路，是时候停下来休息了。',
+                wealth: '但能感觉到疲惫，说明你的身体还在努力地与你沟通。它没有放弃你，它只是在提醒你：慢一点，再慢一点。',
+                debt_en: 'Fatigue is a letter from your body. It speaks an ancient language: you\'ve come a long way. It\'s time to rest.',
+                wealth_en: 'But feeling tired means your body is still trying to communicate with you. It hasn\'t given up—it\'s just reminding you: slow down.'
+            },
+            {
+                debt: '在农耕时代，人们日出而作，日落而息。现代人却把自己当成永动机，以为可以二十四小时不停运转。',
+                wealth: '但你不是机器。你是有血有肉的生命，需要休息，需要停顿，需要在忙碌中给自己留一块空白。这块空白不是浪费，是给生命充电的地方。',
+                debt_en: 'In agrarian times, people worked with the sun. Modern humans treat themselves like perpetual motion machines, thinking they can run 24/7.',
+                wealth_en: 'But you\'re not a machine. You\'re flesh and blood. You need rest, pauses, blank spaces in the busyness. That blank isn\'t wasted—it\'s where life recharges.'
+            },
+            {
+                debt: '我们的祖先在漫长的进化中学会了储存能量，以备不时之需。现在，你身体里那个古老的智慧在提醒你：能量储备已经不足，请及时补充。',
+                wealth: '听从这个声音吧。休息不是懦弱，是生存的智慧。那些懂得适时休息的人，才能走得更远。',
+                debt_en: 'Our ancestors evolved to store energy for lean times. Now that ancient wisdom in your body is warning you: reserves are low. Please refuel.',
+                wealth_en: 'Listen to that voice. Rest isn\'t weakness—it\'s survival wisdom. Those who know when to rest go further in the long run.'
+            }
+        ],
+        humorous_friend: [
+            {
+                debt: '你今天的状态就像一台开了87个标签页的电脑，电量只剩3%，还在跑全家桶。',
+                wealth: '但你还没关机。这台破电脑还在跑。这说明你的CPU比你自己想象的强悍多了。现在，关掉几个标签页，给自己降降温。',
+                debt_en: 'Today you\'re like a computer with 87 tabs open, 3% battery, and running every bloatware known to humanity.',
+                wealth_en: 'But you haven\'t shut down yet. This battered machine is still running. Your CPU is tougher than you think. Now close a few tabs and cool down.'
+            },
+            {
+                debt: '你今天累到说话都嫌费电，脑子像被塞了一团棉花，四肢像灌了铅。恭喜你，荣获今日「行尸走肉」表演奖。',
+                wealth: '但即使是行尸走肉，你也走完了今天该走的路。能走完就了不起。现在去沙发上摊成一张饼，明天再变回人。',
+                debt_en: 'You\'re so tired that talking feels like a drain, your brain is stuffed with cotton, and your limbs are filled with lead. Congrats, you win today\'s "Living Zombie" award.',
+                wealth_en: 'But even as a zombie, you walked your path today. That alone is remarkable. Now go melt into the couch. You can resume human form tomorrow.'
+            },
+            {
+                debt: '你今天的状态就是：身体在工位，灵魂在床上，大脑不知道在哪个次元飘着。',
+                wealth: '但你还是坐到了下班。这说明你的身体比你想象的更忠诚——它知道你有一堆事要做，就硬撑着帮你完成了。今天晚上，请它吃顿好的。',
+                debt_en: 'Today you are: body at desk, soul in bed, brain floating in some unknown dimension.',
+                wealth_en: 'But you still made it to the end of the day. Your body is more loyal than you know—it knew you had things to do, so it powered through. Tonight, treat it to something nice.'
+            }
+        ],
+        poetic_soul: [
+            {
+                debt: '你的疲惫像一件浸了水的棉衣，披在肩上，看不见重量，却每一步都沉甸甸的。',
+                wealth: '但你还在走。这条路上每一个脚印，都盛着你今天全部的力气。你不知道自己有多强壮，直到疲惫成了你唯一的行李。',
+                debt_en: 'Your exhaustion is a soaked cotton coat on your shoulders—weightless to the eye, but every step is heavy.',
+                wealth_en: 'But you\'re still walking. Every footprint holds all your strength for today. You don\'t know how strong you are until fatigue becomes your only baggage.'
+            },
+            {
+                debt: '你像一盏烧尽了灯油的灯，灯芯还在努力地亮着，但火光已经微弱到几乎看不见。',
+                wealth: '但微弱的光也是光。在黑夜里，一颗星星和一颗太阳，对于迷路的人来说，意义是一样的。你不需要永远亮着，你只需要在自己该亮的时候亮着。',
+                debt_en: 'You\'re a lamp that\'s burned through its oil, the wick still straining to glow, but the flame is barely visible.',
+                wealth_en: 'But a faint light is still light. In the dark, a star and the sun mean the same to a lost soul. You don\'t need to shine forever—just when you need to.'
+            },
+            {
+                debt: '你的精力像退潮的海水，刚才还在脚边，一转眼就退到了天边。你站在裸露的沙滩上，感觉所有的重量都留在了滩涂里。',
+                wealth: '但退潮也会涨潮。每一次退去，都是在积蓄下一次回来的力量。你现在的退去，不是消失，是在为下一次涨潮做准备。',
+                debt_en: 'Your energy is like the receding tide—just at your feet a moment ago, now gone to the horizon. You stand on the bare sand, feeling all the weight left in the flats.',
+                wealth_en: 'But every receding tide returns. Every retreat is gathering strength for the next return. Your ebb isn\'t disappearing—it\'s preparing for the next flood.'
+            }
+        ],
+        gentle_geek: [
+            {
+                debt: '你的身体正在经历长期应激状态。皮质醇持续升高会影响睡眠质量、削弱免疫系统、甚至改变基因表达。这不是危言耸听，是科学事实。',
+                wealth: '但好消息是，身体的可塑性远超你的想象。通过适当的休息、营养和放松，这些生理指标是可以恢复的。你现在感到的疲惫，是身体在提醒你启动修复程序。',
+                debt_en: 'Your body is in chronic stress. Elevated cortisol impairs sleep, weakens immunity, and even alters gene expression. This isn\'t fear-mongering—it\'s science.',
+                wealth_en: 'But here\'s the good news: your body is far more plastic than you think. With proper rest, nutrition, and relaxation, these markers can recover. Your fatigue is a repair alert.'
+            },
+            {
+                debt: '当大脑长期处于高负荷状态时，前额叶皮层会出现功能下降。你会感到决策困难、注意力不集中、记忆力减退——这些都是认知疲劳的典型症状。',
+                wealth: '但认知疲劳也是一种自我保护机制。它是大脑在说"我需要暂停"，就像电脑过热时会自动降频一样。这不是你的能力问题，是系统在进行自我维护。',
+                debt_en: 'When the brain is chronically overloaded, the prefrontal cortex functions decline. Decision fatigue, poor focus, memory lapses—classic signs of cognitive exhaustion.',
+                wealth_en: 'But cognitive fatigue is also a protective mechanism. It\'s your brain saying "I need a pause," like a computer throttling itself to prevent overheating. It\'s not failure—it\'s system maintenance.'
+            },
+            {
+                debt: '从神经科学角度看，疲惫是大脑中多巴胺和血清素水平下降的直接结果。这些神经递质负责调节情绪和动力，它们的减少会让你感到无精打采、提不起劲。',
+                wealth: '但休息和放松会刺激这些神经递质的重新合成。你现在需要的不是更多的意志力，而是给大脑一个机会来补充这些关键的化学物质。',
+                debt_en: 'Neuroscientifically, fatigue is a direct result of depleted dopamine and serotonin. These neurotransmitters regulate mood and motivation—their decline leaves you drained.',
+                wealth_en: 'But rest and relaxation stimulate their resynthesis. You don\'t need more willpower—you need to give your brain time to replenish these vital chemicals.'
+            }
+        ],
+        fiery_companion: [
+            {
+                debt: '你今天累得像条狗。不，狗都比你精神。你现在只想一头栽倒在床上，什么都不想做。',
+                wealth: '但你还在撑着。哪怕是一点点，你还在往前走。这就够了。今天的胜利不是完成多少事，是你没有放弃。',
+                debt_en: 'You\'re tired as hell today. Even dogs have more energy than you. You just want to collapse into bed and disappear.',
+                wealth_en: 'But you\'re still standing. Even a little bit, you\'re still moving forward. That\'s enough. Today\'s victory isn\'t what you accomplished—it\'s that you didn\'t quit.'
+            },
+            {
+                debt: '我知道，有时候累到连呼吸都觉得累。你不是懒，你是真的耗尽了。这种感觉很糟糕，我懂。',
+                wealth: '但耗尽也意味着你已经付出了所有。你把今天的力气都用完了，这没什么好羞愧的。现在，允许自己什么都不做。',
+                debt_en: 'I know—sometimes even breathing feels exhausting. You\'re not lazy. You\'re genuinely spent. It sucks. I get it.',
+                wealth_en: 'But being spent means you gave it all. You used up every ounce of energy today. There\'s no shame in that. Now let yourself do nothing.'
+            },
+            {
+                debt: '你今天的状态就是：心里想往前走，身体却像灌了铅。这种无力感，真的很让人挫败。',
+                wealth: '但你知道吗？拖着灌铅的身体还在往前走，本身就是一种勇气。你比自己想象的要坚强得多。现在去休息吧，明天又是新的一天。',
+                debt_en: 'Today you feel: mind willing, body heavy as lead. That powerlessness is so frustrating.',
+                wealth_en: 'But here\'s the thing: moving forward with lead in your veins takes courage. You\'re stronger than you think. Now rest. Tomorrow is a new day.'
+            }
+        ]
+    };
+}
+}
+
+// 焦虑场景响应
+function getAnxiousResponses() {
+    return {
+        wise_elder: [
+            {
+                debt: '焦虑像一片乌云，遮住了阳光。你抬头望，只看到阴霾，却忘记了云的背后依然是蓝天。',
+                wealth: '但乌云也会带来雨水。焦虑在提醒你：有些事情需要被看见，有些情绪需要被接纳。雨过之后，大地会更加滋润。',
+                debt_en: 'Anxiety is a dark cloud blocking the sun. You look up and see only gloom, forgetting the blue sky behind.',
+                wealth_en: 'But clouds also bring rain. Anxiety reminds you: some things need to be seen, some emotions need to be accepted. After the rain, the earth is nourished.'
+            },
+            {
+                debt: '古人说「人无远虑，必有近忧」。但现代人的远虑太多了，多到把当下的生活都淹没了。',
+                wealth: '但忧虑也是一种智慧。它说明你在思考未来，在为明天做准备。只是别忘了，今天才是你真正拥有的。',
+                debt_en: 'Ancient wisdom says "without foresight, there\'s trouble ahead." But modern people worry too far ahead, drowning the present.',
+                wealth_en: 'Yet worry is also wisdom. It means you\'re thinking about the future, preparing. Just don\'t forget: today is what you truly have.'
+            },
+            {
+                debt: '焦虑是心在告诉你：你在乎这件事。在乎到愿意为它承受这份不安。',
+                wealth: '这份在乎，是你内心力量的证明。那些不在乎的人，不会焦虑。你的焦虑，是你认真生活的勋章。',
+                debt_en: 'Anxiety is your heart saying: you care about this. Care enough to bear this unease.',
+                wealth_en: 'That care is proof of your inner strength. Those who don\'t care don\'t worry. Your anxiety is a medal for living intentionally.'
+            }
+        ],
+        humorous_friend: [
+            {
+                debt: '你现在的大脑就像一个开着几十个闹钟的房间，每个闹钟都在响，吵得你头都要炸了。',
+                wealth: '但你知道吗？能听到这么多闹钟响，说明你的耳朵还很灵，你的大脑还在努力工作。现在，试着关掉几个闹钟，让自己静一静。',
+                debt_en: 'Your brain is like a room with dozens of alarm clocks going off—each one louder than the last, driving you crazy.',
+                wealth_en: 'But here\'s the thing: hearing all those alarms means your ears work, your brain is still trying. Now try turning a few off and breathe.'
+            },
+            {
+                debt: '你今天的状态就是：心里像揣了一只乱撞的小鹿，一会儿想往东，一会儿想往西，就是不知道该往哪儿走。',
+                wealth: '但小鹿乱撞也说明它还活着，还在努力寻找出路。你不用急着做决定，先让小鹿停下来喝口水。',
+                debt_en: 'Today you feel like there\'s a panicked deer in your chest—running this way and that, not knowing where to go.',
+                wealth_en: 'But a running deer means it\'s alive, trying to find its way. You don\'t have to decide now. Let the deer stop for a drink first.'
+            },
+            {
+                debt: '恭喜你，成功解锁「想太多」成就！你的大脑已经进化到能同时担心过去、现在和未来，真是太厉害了。',
+                wealth: '说真的，能想这么多说明你的想象力很丰富。把这份想象力用在更有趣的事情上吧，比如想想今晚吃什么。',
+                debt_en: 'Congrats, you\'ve unlocked "Overthinking" achievement! Your brain can worry about past, present, and future simultaneously—impressive!',
+                wealth_en: 'For real, thinking this much means you have great imagination. Redirect it to something fun—like what to eat tonight.'
+            }
+        ],
+        poetic_soul: [
+            {
+                debt: '你的焦虑像一条涨水的河，波涛汹涌，看不清对岸。你站在河边，不知道该怎么过去。',
+                wealth: '但河水也会流向大海。你的焦虑不是终点，是一段旅程。顺着它，你会找到属于自己的方向。',
+                debt_en: 'Your anxiety is a river in flood—choppy, the other shore invisible. You stand there, unsure how to cross.',
+                wealth_en: 'But rivers flow to the sea. Your anxiety isn\'t the end—it\'s a journey. Follow it, and you\'ll find your way.'
+            },
+            {
+                debt: '你像一棵被风吹弯的树，叶子在颤抖，枝干在摇晃。你担心自己会被风吹断。',
+                wealth: '但弯了的树也不会断。风停了，你会慢慢直起来。那些经历过风雨的树，会变得更加坚韧。',
+                debt_en: 'You\'re a tree bent by the wind—leaves trembling, branches shaking. You fear you\'ll break.',
+                wealth_en: 'But bent trees don\'t break. When the wind stops, you\'ll straighten. Trees that weather storms grow stronger.'
+            },
+            {
+                debt: '你的思绪像一团乱麻，越理越乱。你想抓住每一根线头，却不知道从哪里开始。',
+                wealth: '但乱麻也能织成美丽的布。你不需要一下子理清楚所有事情，先从一根线开始。慢慢来，你会找到属于自己的图案。',
+                debt_en: 'Your thoughts are a tangled mess—the more you pull, the worse it gets. You want to grasp every thread, but don\'t know where to start.',
+                wealth_en: 'But tangled threads can become beautiful cloth. You don\'t need to fix everything at once. Start with one thread. Slowly, you\'ll find your pattern.'
+            }
+        ],
+        gentle_geek: [
+            {
+                debt: '焦虑状态下，杏仁核会过度激活，导致你对周围的威胁过度敏感。这是一种生存本能，但在现代社会，它常常误报。',
+                wealth: '但你的前额叶皮层可以干预。通过深呼吸、正念练习和认知重构，你可以训练大脑区分真实威胁和想象威胁。',
+                debt_en: 'When anxious, the amygdala overactivates, making you hypersensitive to threats. It\'s a survival instinct—but in modern life, it often false-alarms.',
+                wealth_en: 'But your prefrontal cortex can intervene. Through breathing, mindfulness, and cognitive reframing, you can train your brain to distinguish real threats from imagined ones.'
+            },
+            {
+                debt: '从心理学角度看，焦虑往往源于「对不确定性的不耐受」。你想要知道所有答案，但生活本身就是不确定的。',
+                wealth: '但研究表明，适度的不确定性反而能促进创造力和适应性。学会与不确定性共处，是成长的重要一步。',
+                debt_en: 'Psychologically, anxiety often stems from "intolerance of uncertainty." You want all the answers, but life itself is uncertain.',
+                wealth_en: 'Yet studies show moderate uncertainty boosts creativity and adaptability. Learning to live with uncertainty is a key step in growth.'
+            },
+            {
+                debt: '焦虑时，大脑会陷入「担忧-回避」循环：越担忧越回避，越回避越担忧。这是一种自我强化的负面反馈。',
+                wealth: '但这个循环是可以打破的。通过小步行动、暴露疗法和自我同情，你可以逐渐减少回避行为，打破这个循环。',
+                debt_en: 'When anxious, the brain enters a "worry-avoidance" cycle: more worry leads to more avoidance, which leads to more worry. A self-reinforcing loop.',
+                wealth_en: 'But this cycle can be broken. With small steps, exposure therapy, and self-compassion, you can reduce avoidance and break the loop.'
+            }
+        ],
+        fiery_companion: [
+            {
+                debt: '焦虑像一只怪兽，张牙舞爪地向你扑来。你想跑，却发现腿像灌了铅。',
+                wealth: '但你知道吗？怪兽也怕勇敢的人。你不需要打败它，你只需要盯着它的眼睛，告诉它：我不怕你。',
+                debt_en: 'Anxiety is a monster, claws out, charging at you. You want to run, but your legs won\'t move.',
+                wealth_en: 'But here\'s the thing: monsters fear courage. You don\'t need to defeat it—just look it in the eye and say: I\'m not scared.'
+            },
+            {
+                debt: '我知道，焦虑的时候，连呼吸都觉得困难。你感觉自己快要被压垮了。',
+                wealth: '但你还在呼吸。这就是胜利。每一次呼吸，都是在告诉焦虑：你赢不了我。',
+                debt_en: 'I know—when anxious, even breathing feels hard. You feel like you\'re drowning.',
+                wealth_en: 'But you\'re still breathing. That\'s victory. Every breath tells anxiety: you can\'t win.'
+            },
+            {
+                debt: '你今天的状态就是：心里像有一团火在烧，越烧越旺，却不知道怎么扑灭。',
+                wealth: '但火也能照亮黑暗。你的焦虑在告诉你：有些东西需要改变。跟随这束光，你会找到出路。',
+                debt_en: 'Today you feel like there\'s a fire in your chest—growing hotter, with no way to put it out.',
+                wealth_en: 'But fire also lights the dark. Your anxiety is telling you: something needs to change. Follow that light, and you\'ll find your way out.'
+            }
+        ]
+    };
+}
+
+// 通用场景响应
+function getGeneralResponses(input) {
+    return {
+        wise_elder: [
+            {
+                debt: '生活有时像一条没有航标的河流，你不知道它会流向哪里。这种不确定感，会让人感到迷茫。',
+                wealth: '但没有航标也意味着更多可能。你可以随波逐流，也可以自己掌舵。这条河最终会带你去一个属于你的地方。',
+                debt_en: 'Life is sometimes like a river without buoys—you don\'t know where it flows. This uncertainty can be disorienting.',
+                wealth_en: 'But no buoys also means more possibilities. You can go with the flow, or steer your own course. This river will lead you somewhere that belongs to you.'
+            },
+            {
+                debt: '人生就像一场漫长的旅行，有时候你会觉得累，有时候你会觉得孤独。这都是旅程的一部分。',
+                wealth: '但每一段旅程都有它的风景。累了就歇一歇，孤独了就看看周围。你走的每一步，都在书写自己的故事。',
+                debt_en: 'Life is a long journey—sometimes you\'re tired, sometimes you\'re lonely. These are all part of the trip.',
+                wealth_en: 'But every journey has its scenery. Rest when tired, look around when lonely. Every step writes your own story.'
+            },
+            {
+                debt: '我们都在寻找生命的意义，但有时候找了很久也找不到。这种徒劳感，会让人感到沮丧。',
+                wealth: '但寻找本身就是意义。在寻找的过程中，你遇见了自己，遇见了他人，遇见了这个世界。这就够了。',
+                debt_en: 'We\'re all searching for meaning in life, but sometimes we search for a long time and find nothing. This futility can be discouraging.',
+                wealth_en: 'But the search itself is meaning. In the process, you meet yourself, others, and the world. That\'s enough.'
+            }
+        ],
+        humorous_friend: [
+            {
+                debt: '你现在的状态就像一部没有剧本的电影，演到一半发现忘词了。镜头还在拍，你只能硬着头皮即兴发挥。',
+                wealth: '但即兴发挥往往最精彩！那些最真实、最打动人的瞬间，都是没有剧本的。相信你的直觉，你比自己想象的更会演。',
+                debt_en: 'You\'re like in a movie without a script—halfway through, you realize you forgot your lines. The camera\'s still rolling, so you wing it.',
+                wealth_en: 'But improvisation is often the best! The most real, touching moments are unscripted. Trust your gut—you\'re a better actor than you think.'
+            },
+            {
+                debt: '生活就像一盒巧克力，你永远不知道下一颗是什么味道。但今天你吃到的这颗，味道好像不怎么样。',
+                wealth: '但再难吃的巧克力也是巧克力啊！而且，下一颗说不定就是你最喜欢的口味呢。保持期待，惊喜就在下一口。',
+                debt_en: 'Life is like a box of chocolates—you never know what you\'re gonna get. And today\'s piece doesn\'t taste great.',
+                wealth_en: 'But even bad chocolate is still chocolate! And the next one might be your favorite. Stay hopeful—surprise is just a bite away.'
+            },
+            {
+                debt: '你今天的状态就是：心里想唱歌，嗓子却哑了；想跳舞，腿却抽筋了；想大笑，嘴角却僵了。',
+                wealth: '但这也很真实啊！不是每一天都要光彩照人。今天就允许自己做一个安静的观众，明天再当主角也不迟。',
+                debt_en: 'Today you feel: want to sing but voice is hoarse, want to dance but legs cramp, want to laugh but face is stiff.',
+                wealth_en: 'But this is real too! Not every day needs to be glamorous. Allow yourself to be a quiet audience today—you can be the star tomorrow.'
+            }
+        ],
+        poetic_soul: [
+            {
+                debt: '你的心像一片安静的湖，没有风，没有涟漪。你站在湖边，不知道该往哪里投下第一颗石子。',
+                wealth: '但平静的湖面也能映照天空。你不需要急着投石，先看看天上的云，听听远处的鸟叫。答案会自己浮现。',
+                debt_en: 'Your heart is a quiet lake—no wind, no ripples. You stand there, unsure where to drop the first stone.',
+                wealth_en: 'But still water reflects the sky. You don\'t need to rush to throw stones. Watch the clouds, listen to the birds. The answer will come.'
+            },
+            {
+                debt: '你像一片落叶，在风中飘来飘去，不知道自己会落在哪里。这种漂泊感，让人感到不安。',
+                wealth: '但落叶也有它的旅程。它会飘过山川，飘过河流，最终落在一片肥沃的土地上，成为新生命的养料。',
+                debt_en: 'You\'re like a fallen leaf, drifting in the wind, not knowing where you\'ll land. This wandering feels unsettling.',
+                wealth_en: 'But leaves have their journey too. They float over mountains, across rivers, and finally land on fertile soil—becoming nourishment for new life.'
+            },
+            {
+                debt: '你的思绪像一首没有旋律的歌，歌词很美，却不知道怎么唱出来。',
+                wealth: '但无声的歌也是歌。它在你心里回荡，滋养着你的灵魂。总有一天，它会找到属于自己的旋律。',
+                debt_en: 'Your thoughts are a song without melody—beautiful lyrics, but you don\'t know how to sing them.',
+                wealth_en: 'But silent songs are still songs. They echo in your heart, nourishing your soul. One day, they\'ll find their melody.'
+            }
+        ],
+        gentle_geek: [
+            {
+                debt: '从系统角度看，你的生活可能处于一种「未定义状态」——输入和输出之间的映射关系暂时不清晰。这是正常的系统过渡阶段。',
+                wealth: '但未定义状态也是一种状态。系统在这个阶段会进行自我诊断和自我优化。给它一点时间，它会找到新的稳定态。',
+                debt_en: 'From a systems perspective, your life may be in an "undefined state"—the mapping between input and output is temporarily unclear. This is a normal transition phase.',
+                wealth_en: 'But undefined is still a state. The system diagnoses and optimizes itself during this phase. Give it time—it will find a new equilibrium.'
+            },
+            {
+                debt: '当你感到迷茫时，大脑的默认模式网络会变得活跃，开始进行深度自我反思。这可能会带来一些情绪波动。',
+                wealth: '但这种反思是有益的。它帮助你重新评估目标、价值观和优先级。迷茫是智慧开始的地方。',
+                debt_en: 'When confused, the brain\'s default mode network activates, initiating deep self-reflection. This may bring emotional fluctuations.',
+                wealth_en: 'But this reflection is valuable. It helps you re-evaluate goals, values, and priorities. Confusion is where wisdom begins.'
+            },
+            {
+                debt: '根据复杂性理论，生活中的不确定性是不可避免的。系统越复杂，可预测性就越低。',
+                wealth: '但正是这种不确定性创造了涌现现象——新的想法、新的关系、新的可能性。拥抱不确定性，你会发现更多惊喜。',
+                debt_en: 'According to complexity theory, uncertainty in life is inevitable. The more complex the system, the less predictable it becomes.',
+                wealth_en: 'But this uncertainty creates emergence—new ideas, relationships, possibilities. Embrace uncertainty, and you\'ll find more surprises.'
+            }
+        ],
+        fiery_companion: [
+            {
+                debt: '生活有时候会给你一拳，打得你晕头转向。你站在原地，不知道该怎么办。',
+                wealth: '但你还站着！被打了一拳还能站着，说明你比这一拳更强大。抖抖肩膀，继续往前走。',
+                debt_en: 'Life sometimes throws a punch that knocks you off balance. You stand there, not knowing what to do.',
+                wealth_en: 'But you\'re still standing! Taking a punch and staying upright means you\'re stronger than the blow. Shake it off and keep going.'
+            },
+            {
+                debt: '我知道，有时候你会觉得自己像在黑暗中摸索，看不到光，也找不到方向。',
+                wealth: '但黑暗中也能找到路。你的脚步就是你的向导，你的直觉就是你的指南针。跟着感觉走，你会找到出口。',
+                debt_en: 'I know—sometimes it feels like groping in the dark, no light, no direction.',
+                wealth_en: 'But you can find your way in the dark. Your steps are your guide, your intuition is your compass. Follow your gut, and you\'ll find the exit.'
+            },
+            {
+                debt: '你今天的状态就是：心里有一团火，却不知道该往哪里烧。这种无力感，真的很让人沮丧。',
+                wealth: '但火总有它的用途。可以用来取暖，可以用来做饭，可以用来照亮黑暗。找到你的火种，让它发光发热。',
+                debt_en: 'Today you feel: there\'s a fire in your chest, but you don\'t know where to direct it. This powerlessness is frustrating.',
+                wealth_en: 'But fire always has a purpose. It warms, cooks, illuminates. Find your spark and let it shine.'
+            }
+        ]
+    };
+}
+</script>
+</body>
+</html>
